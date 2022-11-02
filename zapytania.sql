@@ -24,13 +24,13 @@ SELECT COUNT(*) FROM `products`;
 
 SELECT COUNT(*) FROM `customers`;
 
-SELECT country, COUNT(*) FROM `customers` GROUP BY country;
+SELECT COUNT(*) FROM `customers` GROUP BY country;
 
 SELECT COUNT(*), AVG(price) FROM `products` WHERE category_id = 1;
 
 SELECT SUM(price) FROM `products` WHERE category_id = 2;
 
-SELECT category_id, MAX(price) FROM `products` WHERE category_id = 1 OR category_id = 2 GROUP BY category_id;
+SELECT MAX(price) FROM `products` WHERE category_id = 1 OR category_id = 2 GROUP BY category_id;
 
 
 
