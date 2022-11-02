@@ -4,6 +4,8 @@ SELECT * FROM `customers` WHERE city = "Berlin";
 
 SELECT * FROM `customers` WHERE country = "Germany" AND city = "Berlin";
 
+SELECT * FROM `customers` WHERE (city = "Berlin" OR city = "München") AND country = "Germany";
+
 SELECT * FROM `customers` WHERE NOT country = "Germany" AND NOT country = "USA";
 
 SELECT * FROM `customers` ORDER BY country ASC;
