@@ -50,19 +50,17 @@ SELECT * FROM `orders` WHERE orders.customer_id IN( SELECT id FROM `customers` W
 
 -------------------------------------------------------------------------
 
-SELECT customers.customer_name, customers.contact_name, customers.address, orders.order_date, orders_details.product_id FROM customers JOIN orders ON customers.id = orders.customer_id JOIN orders_details ON orders.id = orders_details.order_id;
+SELECT customers.customer_name, customers.contact_name, customers.address, orders.order_date FROM customers JOIN orders ON customers.id = orders.customer_id;
 
 
 SELECT customers.customer_name, customers.contact_name, customers.address, COUNT(orders.id) FROM customers JOIN orders ON customers.id = orders.customer_id GROUP BY customers.id;
 
 
-SELECT DISTINCT customers.id, customers.customer_name, customers.contact_name, customers.address FROM customers JOIN orders ON customers.id = orders.customer_id WHERE customers.id = orders.customer_id;
+SELECT c.id, c.customer_name, c.contact_name, c.address, o.id FROM customers c RIGHT JOIN orders o ON c.id = o.customer_id WHERE c.id = o.customer_id;
 
 
-SELECT * FROM orders RIGHT JOIN employees ON orders.employee_id = employees.id;
+SELECT C1.customer_name AS name1, C2.customer_name AS name2 FROM customers C1 JOIN customers C2 ON C1.city = C2.city;
 
-
-SELECT C1.customer_name AS name1, C2.customer_name AS name2 FROM customers C1, customers C2 WHERE (C1.id <> C2.id) AND C1.city = C2.city;
 
 
 
