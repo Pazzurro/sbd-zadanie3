@@ -62,7 +62,7 @@ SELECT c.id, c.customer_name, c.contact_name, c.address, o.id FROM customers c R
 SELECT employees.first_name, employees.last_name, orders.id FROM employees RIGHT JOIN orders ON orders.employee_id = employees.id;
 
 
-SELECT C1.customer_name AS name1, C2.customer_name AS name2, C1.city FROM customers C1 JOIN customers C2 ON C1.city = C2.city AND C1.id != C2.id;
+SELECT C1.customer_name AS name1, C2.customer_name AS name2 FROM customers C1 JOIN customers C2 ON C1.city = C2.city AND C1.id != C2.id;
 
 
 
