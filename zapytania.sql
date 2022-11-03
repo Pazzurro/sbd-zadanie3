@@ -59,7 +59,7 @@ SELECT customers.customer_name, customers.contact_name, customers.address, COUNT
 SELECT c.id, c.customer_name, c.contact_name, c.address, o.id FROM customers c RIGHT JOIN orders o ON c.id = o.customer_id WHERE c.id = o.customer_id;
 
 
-SELECT C1.customer_name AS name1, C2.customer_name AS name2 FROM customers C1 JOIN customers C2 ON C1.city = C2.city;
+SELECT C1.customer_name AS name1, C2.customer_name AS name2 FROM customers C1 JOIN customers C2 ON C1.city = C2.city AND C1.id != C2.id;
 
 
 
