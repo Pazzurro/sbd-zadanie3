@@ -59,7 +59,10 @@ SELECT customers.customer_name, customers.contact_name, customers.address, COUNT
 SELECT DISTINCT customers.id, customers.customer_name, customers.contact_name, customers.address FROM customers JOIN orders ON customers.id = orders.customer_id WHERE customers.id = orders.customer_id;
 
 
+SELECT * FROM orders RIGHT JOIN employees ON orders.employee_id = employees.id;
 
+
+SELECT C1.customer_name AS name1, C2.customer_name AS name2 FROM customers C1, customers C2 WHERE (C1.id <> C2.id) AND C1.city = C2.city;
 
 
 
