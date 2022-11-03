@@ -48,6 +48,15 @@ SELECT * FROM `orders` WHERE order_date BETWEEN CAST(19960701 AS datetime) AND C
 
 SELECT * FROM `orders` WHERE orders.customer_id IN( SELECT id FROM `customers` WHERE id BETWEEN 77 AND 90);
 
+-------------------------------------------------------------------------
+
+SELECT customers.customer_name, customers.contact_name, customers.address, orders.order_date, orders_details.product_id FROM customers JOIN orders ON customers.id = orders.customer_id JOIN orders_details ON orders.id = orders_details.order_id;
+
+
+SELECT customers.customer_name, customers.contact_name, customers.address, COUNT(orders.id) FROM customers JOIN orders ON customers.id = orders.customer_id GROUP BY customers.id;
+
+
+SELECT DISTINCT customers.id, customers.customer_name, customers.contact_name, customers.address FROM customers JOIN orders ON customers.id = orders.customer_id WHERE customers.id = orders.customer_id;
 
 
 
