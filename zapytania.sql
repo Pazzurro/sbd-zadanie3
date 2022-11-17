@@ -1,3 +1,6 @@
+-------------------------------------------------------------------------
+//WHERE_AND_OR_ORDAYBY//
+
 SELECT * FROM `customers` WHERE country = "Germany";
 
 SELECT * FROM `customers` WHERE city = "Berlin";
@@ -15,6 +18,7 @@ SELECT * FROM `customers` ORDER BY country DESC;
 SELECT * FROM `customers` ORDER BY country DESC, customer_name ASC;
 
 -------------------------------------------------------------------------
+//MIN_MAX_COUNT_AVG_SUM_GROUPBY//
 
 SELECT MIN(price) FROM `products`;
 
@@ -33,6 +37,7 @@ SELECT SUM(price) FROM `products` WHERE category_id = 2;
 SELECT MAX(price) FROM `products` WHERE category_id = 1 OR category_id = 2 GROUP BY category_id;
 
 -------------------------------------------------------------------------
+//BETWEEN_NOT_BETWEEN_IN_NOT_IN_SUBQUERY//
 
 SELECT * FROM `products` WHERE price BETWEEN 10 AND 20;
 
@@ -49,6 +54,7 @@ SELECT * FROM `orders` WHERE order_date BETWEEN CAST(19960701 AS datetime) AND C
 SELECT * FROM `orders` WHERE orders.customer_id IN( SELECT id FROM `customers` WHERE id BETWEEN 77 AND 90);
 
 -------------------------------------------------------------------------
+//JOIN_INNER_LEFT_RIGT_SELF//
 
 SELECT customers.customer_name, customers.contact_name, customers.address, orders.order_date FROM customers JOIN orders ON customers.id = orders.customer_id;
 
@@ -64,5 +70,9 @@ SELECT employees.first_name, employees.last_name, orders.id FROM employees RIGHT
 
 SELECT C1.customer_name AS name1, C2.customer_name AS name2 FROM customers C1 JOIN customers C2 ON C1.city = C2.city AND C1.id != C2.id;
 
+-------------------------------------------------------------------------
+//LIMIT_OFFSET//
 
+SELECT * FROM orders ORDER BY id DESC LIMIT 10;
 
+SELECT * FROM orders LIMIT 10 OFFSET 10;
