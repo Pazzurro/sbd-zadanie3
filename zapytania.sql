@@ -105,3 +105,16 @@
 1. SELECT products.id, products.name, SUM(orders_details.quantity) amount FROM products JOIN orders_details ON products.id = orders_details.product_id GROUP BY products.name ORDER BY amount DESC LIMIT 10;
 
 2. SELECT customers.id, customers.customer_name, COUNT(orders.id) ordersAmount FROM customers JOIN orders ON customers.id = orders.customer_id GROUP BY orders.customer_id ORDER BY `ordersAmount` DESC LIMIT 10;
+
+3. SELECT categories.category_name, COUNT(products.category_id) ilosc FROM categories JOIN products ON products.category_id = categories.id JOIN orders_details ON orders_details.product_id = products.id GROUP BY categories.category_name ORDER BY ilosc DESC LIMIT 1;
+
+4. SELECT categories.category_name, COUNT(products.category_id) FROM categories JOIN products ON products.category_id = categories.id JOIN orders_details ON orders_details.product_id = products.id GROUP BY categories.category_name;
+
+5. SELECT DISTINCT customers.customer_name FROM customers JOIN orders ON orders.customer_id = customers.id WHERE orders.order_date > '1996-10-01';
+
+-------------------------------------------------------------------------
+//DISTINCT//
+1.  SELECT customers.country FROM customers;
+    SELECT DISTINCT customers.country FROM customers;
+    
+2.  SELECT COUNT(DISTINCT country) FROM customers;
